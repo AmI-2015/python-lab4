@@ -1,0 +1,28 @@
+{% extends 'layout.html' %} 
+{% block title %} Flask Music Server UI{% endblock title %} 
+{% block content %}
+<div class="row">
+	<div class="col-md-12">
+		<h3>Albums</h3>
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-12">
+		<hr />
+	</div>
+</div>
+{% for album in albumlist %}
+
+{% if loop.index%6 == 0 %} 
+<div class="row">
+{% endif %}
+	<div class="col-md-2">
+		<p class="text-center"><a href="/album/{{album.id}}"><img src="{{ url_for('static', filename='img/album.png') }}" class="img-thumbnail"/></a></p>
+		<p class="text-center"><a href="/album/{{album.id}}">{{ album.title }}</a></p>
+		<p class="text-center"><a href="/album/{{album.id}}">{{album.artist}}</a></p>
+	</div>
+{% if loop.index%6 == 0 %}
+</div>
+{% endif %}
+{% endfor %}
+{% endblock content %} 

@@ -1,0 +1,33 @@
+{% extends 'layout.html' %} 
+{% block title %} Flask Music Server UI{% endblock title %} 
+{% block content %}
+<div class="row">
+	<div class="col-md-12">
+		<h3>Flask Music Server UI</h3>
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-6">
+		<form role="form" class="form-inline">
+			<div class="form-group">
+				<select id="tracks" class="form-control">
+					<option value="" selected="selected">Select a track...</option>
+				</select>
+				<button type="button" class="btn btn-default" id="play">
+					<i class="fa fa-play"></i> Play
+				</button>
+				<button type="button" class="btn btn-default" id="stop">
+					<i class="fa fa-stop"></i> Stop
+				</button>
+			</div>
+		</form>
+	</div>
+	<div class="col-md-6">
+		<p id="status"></p>
+	</div>
+</div>
+{% endblock content %} 
+{% block customscript %}
+<script src="{{ url_for('static', filename='js/bootstrap-combobox.js') }}"></script>
+<script src="{{ url_for('static', filename='js/player.js') }}"></script>
+{% endblock customscript %}

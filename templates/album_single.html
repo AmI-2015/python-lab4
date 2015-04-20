@@ -1,0 +1,34 @@
+{% extends 'layout.html' %} 
+{% block title %} Flask Music Server UI{% endblock title %} 
+{% block content %}
+<div class="row">
+	<div class="col-md-8">
+		<h2>{{album.title}}</h2>
+		<hr />
+	</div>
+	<div class="col-md-4"></div>
+</div>
+<div class="row">
+	<div class="col-md-8">
+		<table class="table table-striped">
+			<tr>
+				<th class="col-md-8"> Track </th><th class="col-md-4"></th>
+				
+			</tr>
+			{% for track in album.track_list.tracks %}
+			<tr id="{{track.id}}">
+				<td class="col-md-8">{{track.data['title']}}</td>
+				<td class="col-md-4"><a class="btn btn-default play" href="#" role="button" data-track="{{track.id}}"><i
+						class="fa fa-play"></i> Play</a><a class="btn btn-default stop" href="#" role="button"><i
+						class="fa fa-stop"></i> Stop</a>
+						<span id="{{track.id}}_status" class="status"></span></td>
+			</tr>
+			{% endfor %}
+		</table>
+	</div>
+	<div class="col-md-4"></div>
+</div>
+{% endblock content %} 
+{% block customscript %}
+<script src="{{ url_for('static', filename='js/single_track_player.js') }}"></script>
+{% endblock customscript %}

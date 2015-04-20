@@ -1,0 +1,20 @@
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+    	<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#music-player-navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/">
+        <img alt="Music Player Logo" src="{{ url_for('static',filename='img/logo.png') }}">
+      </a>
+    </div>
+    <div class="collapse navbar-collapse" id="music-player-navbar">
+    	<ul class="nav navbar-nav">
+    		<li><a href="/album">Album</a></li>
+    		<li><a href="/playlist">Playlist</a></li>
+      	</ul>
+    </div>	
+  </div>
+</nav>
